@@ -6,7 +6,7 @@ This repository provides code for deploying a [GeoHealthCheck](https://geohealth
 
 ## Quick Setup
 
-You will need `docker` and `docker-compose` installed in your system, in order to run this infrastructure. If you don't have them already, you can get it from [here](https://github.com/emotional-cities/openapi-sdi/blob/master/install_docker.sh):
+You will need `docker` and `docker-compose` installed in your system, in order to run this infrastructure. If you don't have them already, you can get it from [here](https://raw.githubusercontent.com/emotional-cities/openapi-sdi/master/install_docker.sh):
 
 ```
 ./install_docker.sh
