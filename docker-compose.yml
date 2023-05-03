@@ -19,7 +19,8 @@ services:
       - ghc.env
 
     volumes:
-      - ghc_sqlitedb:/GeoHealthCheck/DB
+      #- ghc_sqlitedb:/GeoHealthCheck/DB
+      - ./ghc_sqlitedb:/GeoHealthCheck/DB
       # Optional Plugins, using Path on the host, relative to this Compose file
       # To activate: 2 steps for runner and GHC webapp:
       # - configure in ghc.env
