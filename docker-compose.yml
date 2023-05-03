@@ -69,7 +69,6 @@ services:
     depends_on:
       - ghc_web
     networks:
-      - proxynet
       - default
 
 # docker-compose v2+ needs separate volumes section
