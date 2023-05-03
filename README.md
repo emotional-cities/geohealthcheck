@@ -20,6 +20,15 @@ Then run:
 docker-compose up -d
 ```
 
+Stop with:
+
+```
+docker-compose down
+```
+
+If you use the `d` flag with docker-compose down, you will remove the sqlite volume, which contains the probes!
+
+
 ## Environment Variables
 
 This compositions read secrets from an environment file on this folder: ```ghc.env```.
