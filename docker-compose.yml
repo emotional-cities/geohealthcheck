@@ -27,6 +27,9 @@ services:
       # See https://docs.docker.com/compose/compose-file/#volumes
       # - ./../GeoHealthCheck/plugins:/plugins:ro
 
+    networks:
+      - default
+
   ghc_runner:
     image: geopython/geohealthcheck:latest
 
@@ -65,7 +68,14 @@ services:
     restart: unless-stopped
     depends_on:
       - ghc_web
+    networks:
+      - proxynet
+      - default
 
 # docker-compose v2+ needs separate volumes section
 volumes:
   ghc_sqlitedb:
+
+networks:
+  default:
+    driver: bridge
