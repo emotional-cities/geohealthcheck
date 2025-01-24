@@ -2,7 +2,6 @@
 # runs GHC Web App (ghc_web) and GHC Daemon Runner (ghc_runner) Docker containers
 # with SQLite backend.  ghc_runner will run using the schedule
 # configured in the GHC Web App.
-version: "3"
 
 services:
   ghc_web:
