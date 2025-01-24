@@ -10,7 +10,7 @@ services:
 
     container_name: ghc_web
 
-    restart: unless-stopped
+    restart: on-failure
 
     ports:
       - 8083:80
@@ -36,7 +36,7 @@ services:
 
     container_name: ghc_runner
 
-    restart: unless-stopped
+    restart: on-failure
 
     env_file:
       - ghc.env
@@ -65,7 +65,7 @@ services:
       - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
       - ./nginx/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-    restart: unless-stopped
+    restart: on-failure
     depends_on:
       - ghc_web
     networks:
