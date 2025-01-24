@@ -64,10 +64,10 @@ services:
       - /etc/letsencrypt/:/etc/letsencrypt/
       - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
       - ./nginx/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-    restart: unless-stopped
-    depends_on:
-      - ghc_web
+#    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+#    restart: unless-stopped
+#    depends_on:
+#      - ghc_web
     networks:
       - default
 
