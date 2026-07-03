@@ -9,7 +9,7 @@ services:
 
     container_name: ghc_web
 
-    restart: on-failure
+    restart:  unless-stopped
 
     ports:
       - 8083:80
@@ -35,7 +35,7 @@ services:
 
     container_name: ghc_runner
 
-    restart: on-failure
+    restart:  unless-stopped
 
     env_file:
       - ghc.env
