@@ -11,8 +11,8 @@ services:
 
     restart:  unless-stopped
 
-    ports:
-      - 8083:80
+    # ports:
+    #   - 80
 
     env_file:
       - ghc.env
@@ -52,24 +52,24 @@ services:
       # See https://docs.docker.com/compose/compose-file/#volumes
       # - ./../GeoHealthCheck/plugins:/plugins:ro
 
-  # nginx:
-  #   image: nginx:stable-alpine
-  #   container_name: nginx
-  #   ports:
-  #     # - "80:80"
-  #     # - "443:443"
-  #     - "8083:8083"
-  #   # volumes:
-  #   #   - ./nginx:/etc/nginx/conf.d
-  #   #   - /etc/letsencrypt/:/etc/letsencrypt/
-  #   #   - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
-  #   #   - ./nginx/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
-  #   command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-  #   restart: on-failure
-  #   depends_on:
-  #     - ghc_web
-  #   networks:
-  #     - default
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    ports:
+      # - "80:80"
+      # - "443:443"
+      - "8083:8083"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    #   - /etc/letsencrypt/:/etc/letsencrypt/
+    #   - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
+    #   - ./nginx/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    restart: on-failure
+    depends_on:
+      - ghc_web
+    networks:
+      - default
 
 # docker-compose v2+ needs separate volumes section
 volumes:
